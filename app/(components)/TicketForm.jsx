@@ -40,7 +40,6 @@ const TicketForm = ({ ticket }) => {
     }
     getTickets();
     router.push("/");
-    router.refresh();
   };
   const startingTicketData = {
     title: "",
