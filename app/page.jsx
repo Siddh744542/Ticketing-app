@@ -1,11 +1,10 @@
-
 import React from "react";
 import TicketCard from "./(components)/TicketCard";
 import Root from "./(root)/page";
 
-export const  getTickets = async () => {
+export const getTickets = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/api/Tickets/`, {
+    const res = await fetch(`${process.env.DOMAIN}/api/Tickets/`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -18,9 +17,7 @@ export const  getTickets = async () => {
 };
 const Dashboard = async () => {
   const data = await getTickets();
-  return (
-   <Root />
-  );
+  return <Root />;
 };
 
 export default Dashboard;

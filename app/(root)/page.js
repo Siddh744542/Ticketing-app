@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import TicketCard from "../(components)/TicketCard";
 export const getTickets = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/api/Tickets/`, {
+    const res = await fetch(`${process.env.DOMAIN}/api/Tickets/`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -15,14 +15,13 @@ export const getTickets = async () => {
   }
 };
 
-
 function Root() {
-  async function fetchData(){
+  async function fetchData() {
     const newData = await getTickets();
     setData(newData);
   }
   const [data, setData] = useState({});
-  useEffect(()=>{
+  useEffect(() => {
     fetchData();
   }, []);
   if (!data?.tickets) {
