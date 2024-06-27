@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { getTickets } from "../page";
 const TicketForm = ({ ticket }) => {
-  const EDITMODE = ticket._id === "new" ? false : true;
+  const EDITMODE = ticket?._id === "new" ? false : true;
 
   const router = useRouter();
   const handleChange = (e) => {
@@ -51,12 +51,12 @@ const TicketForm = ({ ticket }) => {
     category: "Hardware Problem",
   };
   if (EDITMODE) {
-    startingTicketData["title"] = ticket.title;
-    startingTicketData["description"] = ticket.description;
-    startingTicketData["priority"] = ticket.priority;
-    startingTicketData["progress"] = ticket.progress;
-    startingTicketData["status"] = ticket.status;
-    startingTicketData["category"] = ticket.category;
+    startingTicketData["title"] = ticket?.title;
+    startingTicketData["description"] = ticket?.description;
+    startingTicketData["priority"] = ticket?.priority;
+    startingTicketData["progress"] = ticket?.progress;
+    startingTicketData["status"] = ticket?.status;
+    startingTicketData["category"] = ticket?.category;
   }
   const [formData, setFormData] = useState(startingTicketData);
 
